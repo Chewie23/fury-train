@@ -1,0 +1,11 @@
+try:
+    with open(r"cred.pickle", "rb") as f:
+        credentials = pickle.load(f)
+except ValueError:
+    pass
+else:
+    with open(r"cred.pickle", "wb") as f:
+        username = raw_input("Please enter username: ")
+        password = raw_input("Please enter password: ")
+        credentials = {username: password}
+        pickle.dump(credentials, f)
