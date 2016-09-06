@@ -1,17 +1,3 @@
-"""
-TODO:
-- Make a GUI/Drop down to select prefilled fields
-- This is made for walkups ONLY. No real flexibility in changing function/different variations
-    - Maybe have menus? But defeats the purpose of a streamlined and easy to use program
-    - Maybe add user flexibility, like change passwords or choose to leave open/closed? 
-    - Maybe make a script to close a ticket for you? Or see all open issues assigned to you?
-    - HRMMM...
-
-"""
-
-"""
-To see BB custom JIRA fields, go export the ticket to XML!
-"""
 
 from jira import JIRA
 import pickle
@@ -21,8 +7,6 @@ warnings.filterwarnings("ignore") #this is here to ignore the "unsecure" warning
 
 URL2 = 'https://jira.rim.net/'
 
-#below saves user and password if not already logged in already
-#Don't know if this is kosher or not? There has to be a better way?
 try:
     with open(r"user.bin", "rb") as f:
         username = pickle.load(f)
