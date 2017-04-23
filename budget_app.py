@@ -57,7 +57,7 @@ class Budget_App(object):
     def delete_row(self, cur, table):
         warning = """************WARNING************
 Are you sure you want to delete a row? It is permanent!
-(Default choice is N)
+(Default choice is No)
 Y/N > """
         usr_input = raw_input(warning)
         choices = ["y", "Y", "Yes", "yes"]
@@ -70,7 +70,7 @@ Y/N > """
                 self.print_table(cur, table)
             else:
                 cur.execute("DELETE FROM {} WHERE id=?".format(table), (self.ID,))
-                usr_input = "N"
+                usr_input = "N" #Note to self: Implicitly makes the while loop break out
 
     def get_item_desc(self):
         prompt = """Please enter a three word item description: """
@@ -199,8 +199,8 @@ Please enter the selection number or press Q to quit
                 elif usr_input == "3":
                     self.delete_row(self.cur, self.table)
                 elif usr_input == "4":
-                    month_choice = """Do you want to see a specific month or
-all the months?
+                    month_choice = """Do you want to see a [s]pecific month or
+[a]ll the months?
 S/A > """
                     usr_in = raw_input(month_choice)
                     if usr_in[:1].lower() == "s":
